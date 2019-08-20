@@ -1,26 +1,46 @@
-export function saveData(name,dob,num,email){
+export function saveData(name,dob,email,pass,empId){
     var dobArr = dob.split("-");
+    var connectionId = empId.trim().split("-")[1];
     var personObj = {
         name,
         dob : dobArr,
-        num,
-        email
+        email,
+        connectionId
     }
-    var oldData = getData()
-    if(oldData===null){
+
+    var credentialObj = {
+        email,
+        pass
+    }
+    var oldPersonData = getPersonData()
+    var oldCredentialData = getCredentialData();
+    if(oldPersonData===null || oldCredentialData===null){
         var data = [personObj];
         localStorage.setItem('data', JSON.stringify(data));
+        var credentials = [credentialObj];
+        localStorage.setItem('credentials', JSON.stringify(credentials));
     }
     else{
-        oldData.push(personObj);
-        localStorage.setItem('data', JSON.stringify(oldData));
+        oldPersonData.push(personObj);
+        localStorage.setItem('data', JSON.stringify(oldPersonData));
+        oldCredentialData.push(credentialObj);
+        localStorage.setItem('credentials', JSON.stringify(oldCredentialData));
     }
 }
-export function getData(){
+export function getPersonData(){
     let listOfPersons = null;
     let data = localStorage.getItem('data');
     if(data){
         listOfPersons = JSON.parse(data);
     }
     return listOfPersons;
+}
+
+export function getCredentialData(){
+    let listOfcredentials = null;
+    let data = localStorage.getItem('credentials');
+    if(data){
+        listOfcredentials = JSON.parse(data);
+    }
+    return listOfcredentials;
 }

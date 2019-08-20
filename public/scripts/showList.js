@@ -1,5 +1,6 @@
-export default showList
-function showList(data) {
+import {getPersonData} from "./data.js"
+export function showList() {
+    var data = getPersonData();
     var x=``;
     if(data){
         for(let i=0; i<data.length; i++){
@@ -9,15 +10,11 @@ function showList(data) {
                         <div class="collapse" id="person_${i}">
                             <div class="card card-body">
                                 <p>
-                                    Name:${data[i].name} <br>
-                                    Mobile:${data[i].num} <br>
-                                    Email:${data[i].email} <br>
-                                    Date of Birth: ${data[i].dob[2]}/${data[i].dob[1]}/${data[i].dob[0]}
+                                    <span>Name:${data[i].name}</span> <br>
+                                    <span>Email:${data[i].email}</span> <br>
+                                    <span>Date of Birth: ${data[i].dob[2]}/${data[i].dob[1]}/${data[i].dob[0]}</span> <br>
+                                    <a type="button" class="btn btn-info" target="_blank" href='https://connect.iongroup.com/person/${data[i].connectionId}'>Open ${data[i].name}'s Connection</a>
                                 </p>
-                                <!-- <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-outline-dark">Edit</button>
-                                    <button type="button" class="btn btn-outline-danger">Delete</button>
-                                </div> -->
                             </div>
                         </div>
                     </div>
