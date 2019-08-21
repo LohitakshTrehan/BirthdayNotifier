@@ -12,8 +12,9 @@ export function home(){
     document.getElementById("bodyTag").setAttribute("style","");
     //make div and append br and other div
     var mainContentDiv = document.createElement("div");
-    mainContentDiv.setAttribute("class","container-fluid");
+    mainContentDiv.setAttribute("class","p-1");
     mainContentDiv.setAttribute("id","main-content");
+    mainContentDiv.setAttribute("style","display: flex; height: 100%;overflow: auto;")
     document.getElementById("bodyTag").prepend(mainContentDiv);
 
     var br = document.createElement("br");
@@ -29,6 +30,7 @@ export function home(){
                             <a class="navbar-brand" href="#" onClick="document.location.reload(true)">Birthday Notifier</a>
                             <img class="ml-auto navbar-brand" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
                             <a class="navbar-brand">${JSON.parse(localStorage.getItem('currentUser')).name}</a>
+                            <button id="edit_profile" class="navbar-brand btn btn-outline-warning">Edit Profile</button>
                             <button id="logout" class="navbar-brand btn btn-outline-primary">Logout</button>
                         </nav>
     `;
