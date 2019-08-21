@@ -8,155 +8,49 @@
     <link rel="shortcut icon" type="image/png" href="./assets/logo.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        div {
-            box-sizing: border-box;
-            border: 0.5px solid red;
+        .btn-group-vertical>.btn, .btn-group>.btn{
+            flex: none !important
+        }
+        
+        .myClass {
+            padding-top: 12%;
+        }
+        body, html{
+            height:100%
+        }
+        .bg{
+            background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),url('./assets/bday1.png');
+            height: 100%;
         }
     </style>
 </head>
 <body id="bodyTag">
+    <div class="bg"></div>
+    <div class="d-flex justify-content-center myClass" id="loginDiv">
+        <div class="shadow-lg card w-25 text-center" style="border-radius: 30px;">
+            <div class="card-body">
+                <img src="./assets/ION_logo.png" alt="ION Group" style="height: 30%;width: 30%">
+                <h3 class="card-title mb-4">ION Birthday Notifier</h3>
+                <div class="card-text mb-4">
+                    <div class="mb-3">
+                        <span><b>E-mail:</b></span><input id="login_email" class="form-control rounded-pill" type="text">
+                    </div>
+                    <div>
+                        <span><b>Password:</b></span><input id="login_pass" class="form-control rounded-pill" type="password">
+                    </div>
+                </div>
+                <a href="#" id="checkCredentials" class="btn btn-primary px-auto mb-3" style="display: inline-block;;">Sign In</a>
+                <a href="#" id="signupForm" style="display: block">New here? Sign Up!</a>
+            </div>
+        </div>
+    </div>
 
-    <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-                <a class="navbar-brand" href="#" onclick="document.location.reload(true)">
-                    <img src="./assets/ION_logo.png" width="50" height="30" alt="">
-                </a>
-                <a class="navbar-brand" href="#" onclick="document.location.reload(true)">Birthday Notifier</a>
-                <img class="ml-auto navbar-brand" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
-                <a class="navbar-brand">Lohitaksh Trehan</a>
-                <button id="edit_profile" class="navbar-brand btn btn-outline-warning">Edit Profile</button>
-                <button id="logout" class="navbar-brand btn btn-outline-primary">Logout</button>
-            </nav>
-    </div>
-    <br><br>
-    <div class="p-1 container-fluid" id="main-content" style="display: flex; height: 100%;overflow: auto;">
-            <div class="p-2" style="flex: 1 1 0;overflow: auto;">
-                <div style="overflow: auto; max-height: 800px;">
-                    Left container<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                    Top right<br>
-                </div>
-            </div>
-            <div class="p-2" style="flex: 1 1 0;display: flex;flex-direction: column;">
-                <div class="p-2" style="max-height: 400px;flex: 1;overflow: auto;">
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                  Top right<br>
-                 </div>
-                <div class="p-2" style="max-height: 400px;flex: 1;overflow: auto;">
-                        Bottom right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                        Top right<br>
-                </div>
-            </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!--<script type="module" src="./scripts/main.js" crossorigin="anonymous"></script>-->
+    <script type="module" src="./scripts/main.js" crossorigin="anonymous"></script>
+
+</body>
 </body>
 </html>

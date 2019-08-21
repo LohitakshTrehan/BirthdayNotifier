@@ -1,4 +1,5 @@
 import {showList} from "./showList.js";
+import signUp from "./signup.js";
 
 export function home(){
     //delete current child node loginDiv
@@ -22,6 +23,7 @@ export function home(){
 
     var navBar = document.createElement("div");
     navBar.setAttribute("class","container-fluid");
+    navBar.setAttribute("id","homepage_nav");
     navBar.innerHTML = `
                         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
                             <a class="navbar-brand" href="#" onClick="document.location.reload(true)">
@@ -42,6 +44,13 @@ export function home(){
         localStorage.setItem("currentUser",JSON.stringify(""));
         document.location.reload(true);
     })
+
+    /////////////// Edit your own Profile Functionality.---->>>>>>> An inscreen popup functionality?
+    document.getElementById("edit_profile").addEventListener("click",function() {
+        signUp();
+    })
+
+    //////////////////
     showList();
     //fetch data and modify the home page layout
     

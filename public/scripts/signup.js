@@ -3,6 +3,10 @@ export default signUp;
 function signUp() {
     if(document.getElementById("loginDiv")!==null)
         document.getElementById("loginDiv").remove();
+    if(document.getElementById("main-content")!==null)
+        document.getElementById("main-content").remove();
+    if(document.getElementById("homepage_nav")!==null)
+        document.getElementById("homepage_nav").remove();
     document.getElementById("bodyTag").setAttribute("style","");
 
     var mainContentDiv = document.createElement("div");
@@ -10,7 +14,8 @@ function signUp() {
     mainContentDiv.setAttribute("id","signup-div");
     document.getElementById("bodyTag").prepend(mainContentDiv);
     var x = `
-                <form>
+            <div class="d-flex justify-content-center">
+                <div class="card">
                     <div class="form-group">
                         <label for="Name">Name:</label>
                         <input type="text" class="form-control" id="Name" placeholder="Type your name here">
@@ -33,6 +38,7 @@ function signUp() {
                     </div>
                     <button id="RegisterPerson" type="submit" class="btn btn-primary">SignUp</button>
                 </form>
+            </div>
     `
     mainContentDiv.innerHTML = x;
 

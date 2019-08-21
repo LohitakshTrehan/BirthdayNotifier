@@ -9,7 +9,7 @@ export function loginPage() {
         document.getElementById("signup-nav").remove();
 
     var x = `
-            <div class="card w-25 text-center">
+            <div class="shadow card w-25 text-center">
                 <div class="card-body">
                     <h3 class="card-title">ION Birthday Notifier</h3>
                     <br>
