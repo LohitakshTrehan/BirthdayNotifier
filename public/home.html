@@ -1,0 +1,417 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Birthday</title>
+        <link rel="shortcut icon" type="image/png" href="./assets/logo.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .btn-group-vertical>.btn, .btn-group>.btn{
+                flex: none !important
+            }
+            
+            .myClass {
+                padding-top: 21%;
+            }
+        </style>
+    </head>
+    <body id="bodyTag" style=""><div class="container-fluid" id="homepage_nav">
+                            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+                                <a class="navbar-brand" href="#" onclick="document.location.reload(true)">
+                                    <img src="./assets/ION_logo.png" width="50" height="30" alt="">
+                                </a>
+                                <a class="navbar-brand" href="#" onclick="document.location.reload(true)">Birthday Notifier</a>
+                                <img class="ml-auto navbar-brand" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
+                                <a class="navbar-brand">Tanay</a>
+                                <button id="edit_profile" class="navbar-brand btn btn-outline-warning">Edit Profile</button>
+                                <button id="logout" class="navbar-brand btn btn-outline-primary">Logout</button>
+                            </nav>
+        </div><br><div class="p-1" id="main-content" style="display: flex; height: 100%;overflow: auto;"><div class="p-3" style="flex: 1 1 0;overflow: auto;"><div style="overflow: auto; max-height: 800px;" id="list_all_bday"><h2><b>All Birthday's</b></h2><br>
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_0" aria-expanded="false" aria-controls="person_0" class="list-group-item list-group-item-action"><b>Tanay</b></a>
+                            <div class="collapse" id="person_0">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Tanay</span> <br>
+                                        <span>Email:tanay@gmail.com</span> <br>
+                                        <span>Date of Birth: 12/09/1999</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')">Open Tanay's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_1" aria-expanded="false" aria-controls="person_1" class="list-group-item list-group-item-action"><b>chirag</b></a>
+                            <div class="collapse" id="person_1">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:chirag</span> <br>
+                                        <span>Email:chirag@gmail.com</span> <br>
+                                        <span>Date of Birth: 27/03/1995</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99607','Connection Profile','height=900,width=1000')">Open chirag's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_2" aria-expanded="false" aria-controls="person_2" class="list-group-item list-group-item-action"><b>john</b></a>
+                            <div class="collapse" id="person_2">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:john</span> <br>
+                                        <span>Email:fhd@bsj.com</span> <br>
+                                        <span>Date of Birth: 13/03/5434</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/7825','Connection Profile','height=900,width=1000')">Open john's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_3" aria-expanded="false" aria-controls="person_3" class="list-group-item list-group-item-action"><b>Peter</b></a>
+                            <div class="collapse" id="person_3">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Peter</span> <br>
+                                        <span>Email:mfb@fnds.in</span> <br>
+                                        <span>Date of Birth: 07/02/68437</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/2368','Connection Profile','height=900,width=1000')">Open Peter's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_4" aria-expanded="false" aria-controls="person_4" class="list-group-item list-group-item-action"><b>Alferd</b></a>
+                            <div class="collapse" id="person_4">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Alferd</span> <br>
+                                        <span>Email:agf@jfsgjd.in</span> <br>
+                                        <span>Date of Birth: 06/04/7328</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/634237','Connection Profile','height=900,width=1000')">Open Alferd's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_5" aria-expanded="false" aria-controls="person_5" class="list-group-item list-group-item-action"><b>John</b></a>
+                            <div class="collapse" id="person_5">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:John</span> <br>
+                                        <span>Email:shadf@gfsf.gga</span> <br>
+                                        <span>Date of Birth: 25/03/17521</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/6215371','Connection Profile','height=900,width=1000')">Open John's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_6" aria-expanded="false" aria-controls="person_6" class="list-group-item list-group-item-action"><b>Sansa</b></a>
+                            <div class="collapse" id="person_6">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Sansa</span> <br>
+                                        <span>Email:jdfshg@jsgdf.ch</span> <br>
+                                        <span>Date of Birth: 05/06/44723</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/62734','Connection Profile','height=900,width=1000')">Open Sansa's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_7" aria-expanded="false" aria-controls="person_7" class="list-group-item list-group-item-action"><b>Pankhudi</b></a>
+                            <div class="collapse" id="person_7">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Pankhudi</span> <br>
+                                        <span>Email:A@b.com</span> <br>
+                                        <span>Date of Birth: 19/11/1993</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/98940','Connection Profile','height=900,width=1000')">Open Pankhudi's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_8" aria-expanded="false" aria-controls="person_8" class="list-group-item list-group-item-action"><b>Ujjwal</b></a>
+                            <div class="collapse" id="person_8">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Ujjwal</span> <br>
+                                        <span>Email:sadbf@bfdj.com</span> <br>
+                                        <span>Date of Birth: 13/03/27284</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/98923','Connection Profile','height=900,width=1000')">Open Ujjwal's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div></div><div class="p-2" style="flex: 1 1 0;display: flex;flex-direction: column;"><div class="p-2 mt-2" style="max-height: 400px;flex: 1;overflow: auto;" id="list_today_bday"><h4><b>Today's Birthday</b></h4><br>
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_0" aria-expanded="false" aria-controls="person_0" class="list-group-item list-group-item-action"><b>Tanay</b></a>
+                            <div class="collapse" id="person_0">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Tanay</span> <br>
+                                        <span>Email:tanay@gmail.com</span> <br>
+                                        <span>Date of Birth: 12/09/1999</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')">Open Tanay's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_1" aria-expanded="false" aria-controls="person_1" class="list-group-item list-group-item-action"><b>chirag</b></a>
+                            <div class="collapse" id="person_1">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:chirag</span> <br>
+                                        <span>Email:chirag@gmail.com</span> <br>
+                                        <span>Date of Birth: 27/03/1995</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99607','Connection Profile','height=900,width=1000')">Open chirag's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_2" aria-expanded="false" aria-controls="person_2" class="list-group-item list-group-item-action"><b>john</b></a>
+                            <div class="collapse" id="person_2">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:john</span> <br>
+                                        <span>Email:fhd@bsj.com</span> <br>
+                                        <span>Date of Birth: 13/03/5434</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/7825','Connection Profile','height=900,width=1000')">Open john's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_3" aria-expanded="false" aria-controls="person_3" class="list-group-item list-group-item-action"><b>Peter</b></a>
+                            <div class="collapse" id="person_3">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Peter</span> <br>
+                                        <span>Email:mfb@fnds.in</span> <br>
+                                        <span>Date of Birth: 07/02/68437</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/2368','Connection Profile','height=900,width=1000')">Open Peter's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_4" aria-expanded="false" aria-controls="person_4" class="list-group-item list-group-item-action"><b>Alferd</b></a>
+                            <div class="collapse" id="person_4">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Alferd</span> <br>
+                                        <span>Email:agf@jfsgjd.in</span> <br>
+                                        <span>Date of Birth: 06/04/7328</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/634237','Connection Profile','height=900,width=1000')">Open Alferd's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_5" aria-expanded="false" aria-controls="person_5" class="list-group-item list-group-item-action"><b>John</b></a>
+                            <div class="collapse" id="person_5">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:John</span> <br>
+                                        <span>Email:shadf@gfsf.gga</span> <br>
+                                        <span>Date of Birth: 25/03/17521</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/6215371','Connection Profile','height=900,width=1000')">Open John's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_6" aria-expanded="false" aria-controls="person_6" class="list-group-item list-group-item-action"><b>Sansa</b></a>
+                            <div class="collapse" id="person_6">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Sansa</span> <br>
+                                        <span>Email:jdfshg@jsgdf.ch</span> <br>
+                                        <span>Date of Birth: 05/06/44723</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/62734','Connection Profile','height=900,width=1000')">Open Sansa's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_7" aria-expanded="false" aria-controls="person_7" class="list-group-item list-group-item-action"><b>Pankhudi</b></a>
+                            <div class="collapse" id="person_7">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Pankhudi</span> <br>
+                                        <span>Email:A@b.com</span> <br>
+                                        <span>Date of Birth: 19/11/1993</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/98940','Connection Profile','height=900,width=1000')">Open Pankhudi's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_8" aria-expanded="false" aria-controls="person_8" class="list-group-item list-group-item-action"><b>Ujjwal</b></a>
+                            <div class="collapse" id="person_8">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Ujjwal</span> <br>
+                                        <span>Email:sadbf@bfdj.com</span> <br>
+                                        <span>Date of Birth: 13/03/27284</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/98923','Connection Profile','height=900,width=1000')">Open Ujjwal's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div><div class="p-2" style="max-height: 400px;flex: 1;overflow: auto;" id="list_upcoming_bday"><br><h4><b>Upcoming Birthday's</b></h4><br>
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_0" aria-expanded="false" aria-controls="person_0" class="list-group-item list-group-item-action"><b>Tanay</b></a>
+                            <div class="collapse" id="person_0">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Tanay</span> <br>
+                                        <span>Email:tanay@gmail.com</span> <br>
+                                        <span>Date of Birth: 12/09/1999</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')">Open Tanay's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_1" aria-expanded="false" aria-controls="person_1" class="list-group-item list-group-item-action"><b>chirag</b></a>
+                            <div class="collapse" id="person_1">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:chirag</span> <br>
+                                        <span>Email:chirag@gmail.com</span> <br>
+                                        <span>Date of Birth: 27/03/1995</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99607','Connection Profile','height=900,width=1000')">Open chirag's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_2" aria-expanded="false" aria-controls="person_2" class="list-group-item list-group-item-action"><b>john</b></a>
+                            <div class="collapse" id="person_2">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:john</span> <br>
+                                        <span>Email:fhd@bsj.com</span> <br>
+                                        <span>Date of Birth: 13/03/5434</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/7825','Connection Profile','height=900,width=1000')">Open john's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_3" aria-expanded="false" aria-controls="person_3" class="list-group-item list-group-item-action"><b>Peter</b></a>
+                            <div class="collapse" id="person_3">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Peter</span> <br>
+                                        <span>Email:mfb@fnds.in</span> <br>
+                                        <span>Date of Birth: 07/02/68437</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/2368','Connection Profile','height=900,width=1000')">Open Peter's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_4" aria-expanded="false" aria-controls="person_4" class="list-group-item list-group-item-action"><b>Alferd</b></a>
+                            <div class="collapse" id="person_4">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Alferd</span> <br>
+                                        <span>Email:agf@jfsgjd.in</span> <br>
+                                        <span>Date of Birth: 06/04/7328</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/634237','Connection Profile','height=900,width=1000')">Open Alferd's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_5" aria-expanded="false" aria-controls="person_5" class="list-group-item list-group-item-action"><b>John</b></a>
+                            <div class="collapse" id="person_5">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:John</span> <br>
+                                        <span>Email:shadf@gfsf.gga</span> <br>
+                                        <span>Date of Birth: 25/03/17521</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/6215371','Connection Profile','height=900,width=1000')">Open John's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_6" aria-expanded="false" aria-controls="person_6" class="list-group-item list-group-item-action"><b>Sansa</b></a>
+                            <div class="collapse" id="person_6">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Sansa</span> <br>
+                                        <span>Email:jdfshg@jsgdf.ch</span> <br>
+                                        <span>Date of Birth: 05/06/44723</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/62734','Connection Profile','height=900,width=1000')">Open Sansa's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_7" aria-expanded="false" aria-controls="person_7" class="list-group-item list-group-item-action"><b>Pankhudi</b></a>
+                            <div class="collapse" id="person_7">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Pankhudi</span> <br>
+                                        <span>Email:A@b.com</span> <br>
+                                        <span>Date of Birth: 19/11/1993</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/98940','Connection Profile','height=900,width=1000')">Open Pankhudi's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="list-group">
+                            <a data-toggle="collapse" href="#person_8" aria-expanded="false" aria-controls="person_8" class="list-group-item list-group-item-action"><b>Ujjwal</b></a>
+                            <div class="collapse" id="person_8">
+                                <div class="card card-body">
+                                    <p>
+                                        <span>Name:Ujjwal</span> <br>
+                                        <span>Email:sadbf@bfdj.com</span> <br>
+                                        <span>Date of Birth: 13/03/27284</span> <br>
+                                        <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/98923','Connection Profile','height=900,width=1000')">Open Ujjwal's Connection</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                </div></div></div>
+    
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="module" src="./scripts/main.js" crossorigin="anonymous"></script>
+    
+    </body>
+</html>

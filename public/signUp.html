@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Birthday</title>
+    <link rel="shortcut icon" type="image/png" href="./assets/logo.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <style>
+        .btn-group-vertical>.btn, .btn-group>.btn{
+            flex: none !important
+        }
+        
+        .myClass {
+            padding-top: 12%;
+        }
+    </style>
+</head>
+<body id="bodyTag" style="overflow-y:hidden;  background-image: url('./assets/bday3.jpg');position:absolute;height: 100%;width: 100%;">
+    <div class="bgc" style="height: 100%;width:100%;background-color:black;position: absolute;opacity:0.5"></div>
+    <div class="d-flex justify-content-center myClass" id="signup-div">
+        <div class="shadow-lg card" style="border-radius: 15px;width: 550px">
+            <div class="card-body">
+                <img src="./assets/ION_logo.png" alt="ION Group" style="height: 40px;width: 70px" class="mb-4">
+                <h2 class="card-title mb-4 text-center" style="font-weight: 700">ION Birthday Notifier</h2>
+                <h4 class="card-title mb-4 text-center" style="font-weight: 600">Create Your Account!</h4>
+                <div class="card-text mb-4">
+                    <div class=" mb-3">
+                        <input required id="Name" placeholder="Name" class="form-control rounded-lg" type="text">
+                    </div>
+                    <div class="mb-3 d-flex flex-row">
+                        <input required placeholder="Date of Birth" id="BirthDate" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-right: 12px;">
+                        <input required  id="empId" placeholder="Employee Id" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-left: 12px;">
+                    </div>
+                    <div class="mb-3">
+                        <input required id="Email" placeholder="Email" class="form-control rounded-lg" type="text">
+                    </div>
+                    <div class="mb-3 d-flex flex-row">
+                        <input required id="pass" placeholder="Password" class="form-control rounded-lg" type="password" style="padding-right: 0px;margin-right: 12px;">
+                        <input required id="confirm_pass" placeholder="Confirm Password" class="form-control rounded-lg" type="password" style="padding-right: 0px;margin-left: 12px;">
+                    </div>
+                </div>
+                <a href="#"id="RegisterPerson" class="btn btn-primary px-auto " style="display: inline-block;">Sign Up!</a>
+                <a href="./signIn.html" class="text-right" style="display: block">Back to Login Screen?</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script>
+        $( function() {
+            $( "#BirthDate" ).datepicker();
+        } );
+    </script>
+
+</body>
+</body>
+</html>
