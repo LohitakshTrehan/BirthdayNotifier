@@ -3,46 +3,167 @@ window.onload = function(){
         event.preventDefault();
         //start registering the person and look for inline error marking
         var isValid = validate();
+        console.log(isValid);
     });
     console.log("signUp.js called");
 }
 
 function validate(){
     var letters = /^[A-Za-z]+$/;
-    var email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var email = /.+@iongroup.com$/
     var empIdPattern = /^[a-zA-Z]\-[0-9]+$/;
     var dob = document.getElementById("BirthDate").value; //empId, pass
-    console.log(dob);
-    var name = document.getElementById("Name").value.trim();
-    var nameArr = name.split(" ");
+    var name = document.getElementById("Name");
+    var name_value = name.value.trim();
+    var nameArr = name_value.split(" ");
     var enteredEmail = document.getElementById("Email").value;
     var empId = document.getElementById("empId").value;
     var pass = document.getElementById("pass").value;
     var confirm_pass = document.getElementById("confirm_pass").value;
-
-    var err = "";
+    var isValid = true;
+    var err = 0;
     for(let i=0;i<nameArr.length;i++){
         if(nameArr[i].match(letters)===null){
-            err+="Name field contains more than one white space together, or something else than alphabets\n";
+            document.getElementById("wrap_name").setAttribute("class","mb-1");
+            if(name.classList.contains("is-valid"))
+                name.classList.remove("is-valid");
+            if(name.classList.contains("is-invalid"))
+                name.classList.remove("is-invalid");
+            name.classList.add("is-invalid")
+            document.getElementById("err_name").style["display"]="inline";
+            isValid = false;
+            err = 1;
             break;
         }
     }
 
-    if(enteredEmail.match(email)===null){
-        err+="format of entered email is incorrect \n"
+    if(err===0){
+        document.getElementById("wrap_name").setAttribute("class","mb-3");
+        if(name.classList.contains("is-valid"))
+            name.classList.remove("is-valid");
+        if(name.classList.contains("is-invalid"))
+            name.classList.remove("is-invalid");
+        name.classList.add("is-valid")
+        document.getElementById("err_name").style["display"]="none";
     }
 
-    if(empId.match(empIdPattern)===null){
-        err+="incorrect format of empId\n";
+    var isBorn = seeIfBorn(dob);
+    if( !isBorn || empId.match(empIdPattern)===null){
+        document.getElementById("wrap_input").setAttribute("class","mb-1 d-flex flex-row");
+        isValid = false;
+        if(!isBorn){
+            if(document.getElementById("BirthDate").classList.contains("is-valid"))
+                document.getElementById("BirthDate").classList.remove("is-valid")
+            if(document.getElementById("BirthDate").classList.contains("is-invalid"))
+                document.getElementById("BirthDate").classList.remove("is-invalid")
+            document.getElementById("BirthDate").classList.add("is-invalid")
+            document.getElementById("err_birth").style["display"]="inline";
+        }
+        if(empId.match(empIdPattern)===null){
+            if(document.getElementById("empId").classList.contains("is-valid"))
+                document.getElementById("empId").classList.remove("is-valid")
+            if(document.getElementById("empId").classList.contains("is-invalid"))
+                document.getElementById("empId").classList.remove("is-invalid")
+            document.getElementById("empId").classList.add("is-invalid")
+            document.getElementById("err_empId").style["display"]="inline";
+        }
     }
-
-    if(pass.length<3){
-        err+="password length too short\n";
+    if(isBorn && empId.match(empIdPattern)!==null){
+        document.getElementById("wrap_input").setAttribute("class","mb-3 d-flex flex-row");
     }
-
-    if(pass!==confirm_pass){
-        err+="the passwords dont match"
+    if(isBorn){
+        if(document.getElementById("BirthDate").classList.contains("is-valid"))
+            document.getElementById("BirthDate").classList.remove("is-valid")
+        if(document.getElementById("BirthDate").classList.contains("is-invalid"))
+            document.getElementById("BirthDate").classList.remove("is-invalid")
+        document.getElementById("BirthDate").classList.add("is-valid")
+        document.getElementById("err_birth").style["display"]="none";
+    }
+    if(empId.match(empIdPattern)!==null){
+        if(document.getElementById("empId").classList.contains("is-valid"))
+            document.getElementById("empId").classList.remove("is-valid")
+        if(document.getElementById("empId").classList.contains("is-invalid"))
+            document.getElementById("empId").classList.remove("is-invalid")
+        document.getElementById("empId").classList.add("is-valid")
+        document.getElementById("err_empId").style["display"]="none";
     }
     
-    console.log(err)
+    if(enteredEmail.match(email)===null){
+        document.getElementById("wrap_email").setAttribute("class","mb-1");
+        if(document.getElementById("Email").classList.contains("is-valid"))
+            document.getElementById("Email").classList.remove("is-valid")
+        if(document.getElementById("Email").classList.contains("is-invalid"))
+            document.getElementById("Email").classList.remove("is-invalid")
+        document.getElementById("Email").classList.add("is-invalid")
+        document.getElementById("err_email").style["display"]="inline";
+        isValid = false;
+    }
+    else{
+        document.getElementById("wrap_email").setAttribute("class","mb-3");
+        if(document.getElementById("Email").classList.contains("is-valid"))
+            document.getElementById("Email").classList.remove("is-valid")
+        if(document.getElementById("Email").classList.contains("is-invalid"))
+            document.getElementById("Email").classList.remove("is-invalid")
+        document.getElementById("Email").classList.add("is-valid")
+        document.getElementById("err_email").style["display"]="none";
+    }
+
+    if(pass.length<5){
+        document.getElementById("wrap_pass").setAttribute("class","mb-1 d-flex flex-row");
+        isValid = false;
+        if(document.getElementById("pass").classList.contains("is-valid"))
+            document.getElementById("pass").classList.remove("is-valid")
+        if(document.getElementById("pass").classList.contains("is-invalid"))
+            document.getElementById("pass").classList.remove("is-invalid")
+        document.getElementById("pass").classList.add("is-invalid")
+        document.getElementById("err_pass").style["display"]="inline";
+
+        if(document.getElementById("confirm_pass").classList.contains("is-valid"))
+            document.getElementById("confirm_pass").classList.remove("is-valid")
+        if(document.getElementById("confirm_pass").classList.contains("is-invalid"))
+            document.getElementById("confirm_pass").classList.remove("is-invalid")
+        document.getElementById("err_cpass").style["display"]="none";
+    }
+    else{
+        if(document.getElementById("pass").classList.contains("is-valid"))
+            document.getElementById("pass").classList.remove("is-valid")
+        if(document.getElementById("pass").classList.contains("is-invalid"))
+            document.getElementById("pass").classList.remove("is-invalid")
+        document.getElementById("pass").classList.add("is-valid")
+        document.getElementById("err_pass").style["display"]="none";
+        if(pass!==confirm_pass){
+            document.getElementById("wrap_pass").setAttribute("class","mb-1 d-flex flex-row");
+            if(document.getElementById("confirm_pass").classList.contains("is-valid"))
+                document.getElementById("confirm_pass").classList.remove("is-valid")
+            if(document.getElementById("confirm_pass").classList.contains("is-invalid"))
+                document.getElementById("confirm_pass").classList.remove("is-invalid")
+            document.getElementById("confirm_pass").classList.add("is-invalid")
+            document.getElementById("err_cpass").style["display"]="inline";
+            isValid = false;
+        }
+        else{
+            document.getElementById("wrap_pass").setAttribute("class","mb-3 d-flex flex-row");
+            if(document.getElementById("confirm_pass").classList.contains("is-valid"))
+                document.getElementById("confirm_pass").classList.remove("is-valid")
+            if(document.getElementById("confirm_pass").classList.contains("is-invalid"))
+                document.getElementById("confirm_pass").classList.remove("is-invalid")
+            document.getElementById("confirm_pass").classList.add("is-valid")
+            document.getElementById("err_cpass").style["display"]="none";
+        }
+    }
+    return isValid;
+}
+
+function seeIfBorn(bornOn){
+    if(bornOn==="")
+        return false;
+    var today = new Date();
+    var getYear = today.getFullYear();
+    bornOn = bornOn.split("/");
+    if(parseInt(bornOn[2])<getYear){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

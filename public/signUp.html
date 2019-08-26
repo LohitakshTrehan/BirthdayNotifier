@@ -27,19 +27,25 @@
                 <h2 class="card-title mb-4 text-center" style="font-weight: 700">ION Birthday Notifier</h2>
                 <h4 class="card-title mb-4 text-center" style="font-weight: 600">Create Your Account!</h4>
                 <div class="card-text mb-4">
-                    <div class=" mb-3">
+                    <div id="wrap_name" class=" mb-3">
                         <input required id="Name" placeholder="Name" class="form-control rounded-lg" type="text">
+                        <span id="err_name" style="display: none;font-size: 10px" class="text-danger">*Name field contains more than one white space together, or something else than alphabets</span>
                     </div>
-                    <div class="mb-3 d-flex flex-row">
+                    <div id="wrap_input" class="mb-3 d-flex flex-row">
                         <input required placeholder="Date of Birth" id="BirthDate" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-right: 12px;">
+                        <span id="err_birth" style="display: none;font-size: 10px" class="text-danger">*Are you born in future?</span>
                         <input required  id="empId" placeholder="Employee Id" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-left: 12px;">
+                        <span id="err_empId" style="display: none;font-size: 10px" class="ml-3 text-danger">*Incorrect format of empId</span>
                     </div>
-                    <div class="mb-3">
+                    <div id="wrap_email" class="mb-3">
                         <input required id="Email" placeholder="Email" class="form-control rounded-lg" type="text">
+                        <span id="err_email" style="display: none;font-size: 10px" class="ml-3 text-danger">*Incorrect format of email, please follow: example@iongroup.com</span>
                     </div>
-                    <div class="mb-3 d-flex flex-row">
+                    <div id="wrap_pass" class="mb-3 d-flex flex-row">
                         <input required id="pass" placeholder="Password" class="form-control rounded-lg" type="password" style="padding-right: 0px;margin-right: 12px;">
+                        <span id="err_pass" style="display: none;font-size: 10px" class="ml-3 text-danger">*Password length must be greater than five</span>
                         <input required id="confirm_pass" placeholder="Confirm Password" class="form-control rounded-lg" type="password" style="padding-right: 0px;margin-left: 12px;">
+                        <span id="err_cpass" style="display: none;font-size: 10px" class="ml-3 text-danger">*Passwords dont match</span>
                     </div>
                 </div>
                 <a href="#"id="RegisterPerson" class="btn btn-primary px-auto " style="display: inline-block;">Sign Up!</a>
