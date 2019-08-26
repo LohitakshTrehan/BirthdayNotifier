@@ -27,75 +27,103 @@
     </head>
     <body id="bodyTag" style="overflow-y: hidden;">
         <div style="width: 100%" id="homepage_nav">
-                            <nav class="shadow-sm navbar navbar-expand-lg navbar-light" style="background-color:lightgray; padding: 0px; border-radius: 10px">
-                                <a class="navbar-brand ml-1 pr-1" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none solid none none;" href="#" onclick="document.location.reload(true)">
-                                    <img src="./assets/ION_logo.png" width="50" height="30" alt="ION">
-                                </a>
-                                <a class="navbar-brand ml-2 pr-1" style="font-size: larger;font-weight: 600;border-radius: 5px;border-color: white;border-width: 2px;border-style: none solid none none;" href="#" onclick="document.location.reload(true)">ION Birthday Notifier</a>
-                                <img class="ml-auto navbar-brand pl-1 mr-2" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
-                                <a class="navbar-brand mr-2">Tanay</a>
-                                <div class="dropdown dropleft">
-                                    <img class="navbar-brand mr-2 dropdown-toggle" id="home_settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://img.icons8.com/ios-filled/20/000000/settings.png" alt="settings">
-                                    <div class="dropdown-menu " aria-labelledby="home_settings">
-                                        <a class="dropdown-item" href="#">Edit Profile</a>
-                                        <a class="dropdown-item" href="#">Future setting 1</a>
-                                        <a class="dropdown-item" href="#">Future setting 2</a>
-                                        <a class="dropdown-item" href="#">Future setting 3</a>
-                                    </div>
-                                </div>
-                                <img class="navbar-brand mr-1 pl-1" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" src="https://img.icons8.com/windows/30/000000/logout-rounded-left.png" alt="signOut">
-                                <!-- <button id="edit_profile" class="navbar-brand btn btn-outline-warning">Edit Profile</button>
-                                <button id="logout" class="navbar-brand btn btn-outline-primary">Logout</button> -->
-                            </nav>
-        </div>
-        <div id="main-content" style="display: flex; height: 100%;">
-            <div class="m-3" style="flex: 1 1 0;overflow: auto;">
-                <div style="overflow: auto; max-height: 800px;" id="list_all_bday">
-                    <div style="margin-bottom: 10px">
-                        <h2 style="margin-bottom: 0px">List of all Birthday's</h2>
+            <nav class="shadow-sm navbar navbar-expand-lg navbar-light" style="background-color:lightgray; padding: 0px; border-radius: 10px">
+                <a class="navbar-brand ml-1 pr-1" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none solid none none;" href="#" onclick="document.location.reload(true)">
+                    <img src="./assets/ION_logo.png" width="50" height="30" alt="ION">
+                </a>
+                <a class="navbar-brand ml-2 pr-1" style="font-size: larger;font-weight: 600;border-radius: 5px;border-color: white;border-width: 2px;border-style: none solid none none;" href="#" onclick="document.location.reload(true)">ION Birthday Notifier</a>
+                <img class="ml-auto navbar-brand pl-1 mr-2" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
+                <a class="navbar-brand mr-2">Tanay</a>
+                <div style="cursor: pointer" class="dropdown dropleft">
+                    <img class="navbar-brand mr-2 dropdown-toggle" id="home_settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://img.icons8.com/ios-filled/20/000000/settings.png" alt="settings">
+                    <div class="dropdown-menu " aria-labelledby="home_settings">
+                        <a id="edit_profile" class="dropdown-item" href="#">Edit Profile</a>
+                        <a class="dropdown-item" href="#">Future setting 1</a>
+                        <a class="dropdown-item" href="#">Future setting 2</a>
+                        <a class="dropdown-item" href="#">Future setting 3</a>
                     </div>
-                    <div class="list-group list-group-flush">
+                </div>
+                <img id="logout" class="navbar-brand mr-2 pl-1" style="cursor: pointer;border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" src="https://img.icons8.com/windows/30/000000/exit.png" alt="signOut">
+            </nav>
+        </div>
+
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+        <div id="main-content" style="display: flex; height: 100%;">
+            <div class="m-3" style="flex: 1 1 0;overflow: hidden;">
+                <div id="list_all_bday">
+                    <div class="mb-4 mt-2">
+                        <span class="mr-5" style="font-size: xx-large;font-weight: 500">List of all Birthday's</span>
+                        <span class="mr-5"><input placeholder="Search Name" type="text"></span>
+                        <span class="pl-1 pr-2 pb-1" style="cursor: pointer; border: solid;border-color:black;border-width:1px;border-radius:5px;">
+                            <img src="https://img.icons8.com/material-sharp/24/000000/sort.png" alt="sort">
+                            <span>Sort by Date of Birth</span>
+                        </span>
+                    </div>
+                    <div style="overflow: auto; max-height: 800px;" class="list-group">
                         <div class="card card-body list-group-item">
-                            <p>
-                                <span>Name:Tanay</span>
-                                <span>Email:tanay@gmail.com</span>
-                                <span>Date of Birth: 12/09/1999</span>
-                                <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')">Open Tanay's Connection</a>
-                            </p>
-                        </div>
+                            <div class="d-flex flex-row personContent">
+                                <img class="mr-5" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
+                                <span class="ml-5" style="font-size: larger;font-weight: 600">
+                                    Tanay
+                                </span>
+                                <span class="ml-auto mr-5" style="font-size: larger;">
+                                    <span class="mr-2">Date of Birth:</span>
+                                    <span style="font-weight: 600">1st, January</span>
+                                </span>
+                                <img class="shadow ml-5 mr-5" style="cursor: pointer; width: 100px;height:25px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection.png" alt="ConnectionId">
+                                <img class="shadow mr-2" style="cursor: pointer; width: 100px;height:25px;border-radius:5px;" src="./assets/teams.jpg" alt="TeamsId">
+                            </div>
+                        </div>            
                     </div>
                 </div>
             </div>
-            <div class="p-2" style="flex: 1 1 0;display: flex;flex-direction: column;">
-                <div class="p-2 mt-2" style="max-height: 400px;flex: 1;overflow: auto;" id="list_today_bday">
-                    <h4><b>Today's Birthday</b></h4>
-                    <div class="list-group">
-                        <a data-toggle="collapse" href="#person_0" aria-expanded="false" aria-controls="person_0" class="list-group-item list-group-item-action"><b>Tanay</b></a>
-                        <div class="collapse" id="person_0">
-                            <div class="card card-body">
-                                <p>
-                                    <span>Name:Tanay</span> <br>
-                                    <span>Email:tanay@gmail.com</span> <br>
-                                    <span>Date of Birth: 12/09/1999</span> <br>
-                                    <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')">Open Tanay's Connection</a>
-                                </p>
-                            </div>
+
+            <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+            <div class="m-3" style="flex: 1 1 0;display: flex;flex-direction: column;">
+                <div class="mb-4 mt-2" style="flex: 1;overflow: hidden; max-height: 48px;">
+                    <div>
+                        <span style="font-size: xx-large;font-weight: 500">Today's Birthday (1st, January)</span>
+                    </div>
+                </div>
+                <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_today_bday">
+                    <div class="card card-body list-group-item">
+                        <div class="d-flex flex-row personContent">
+                            <img class="mr-5 " src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
+                            <span class="ml-5 " style="font-size: larger;font-weight: 600">
+                                Tanay
+                            </span>
+                            <img class="ml-auto mr-5 shadow " style="width: 100px;height:25px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection.png" alt="ConnectionId">
+                            <img class=" ml-5 mr-5 shadow " style="width: 100px;height:25px;border-radius:5px;" src="./assets/teams.jpg" alt="TeamsId">
                         </div>
                     </div>
                 </div>
-                <div class="p-2" style="max-height: 400px;flex: 1;overflow: auto;" id="list_upcoming_bday">
-                    <h4><b>Upcoming Birthday's</b></h4>
-                    <div class="list-group">
-                        <a data-toggle="collapse" href="#person_0" aria-expanded="false" aria-controls="person_0" class="list-group-item list-group-item-action"><b>Tanay</b></a>
-                        <div class="collapse" id="person_0">
-                            <div class="card card-body">
-                                <p>
-                                    <span>Name:Tanay</span> <br>
-                                    <span>Email:tanay@gmail.com</span> <br>
-                                    <span>Date of Birth: 12/09/1999</span> <br>
-                                    <a type="button" class="btn btn-info btn-sm" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')">Open Tanay's Connection</a>
-                                </p>
-                            </div>
+
+                <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+                <div class="mb-4 mt-3" style="flex: 1;overflow: hidden; max-height: 48px;">
+                    <div>
+                        <span style="font-size: xx-large;font-weight: 500">Upcoming Birthday's</span>
+                    </div>
+                </div>
+                <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_upcoming_bday">
+                    <div class="card card-body list-group-item">
+                        <div class="d-flex flex-row personContent">
+                            <img class="mr-5 " src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
+                            <span class="ml-5 " style="font-size: larger;font-weight: 600">
+                                Tanay
+                            </span>
+                            <span class="ml-auto mr-5" style="font-size: larger;">
+                                <span class="mr-2">Date of Birth:</span>
+                                <span style="font-weight: 600">1st, January</span>
+                            </span>
+                            <img class="mr-5 ml-2 shadow " style="width: 100px;height:25px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection.png" alt="ConnectionId">
+                            <img class=" ml-5 mr-5 shadow " style="width: 100px;height:25px;border-radius:5px;" src="./assets/teams.jpg" alt="TeamsId">
                         </div>
                     </div>
                 </div>
