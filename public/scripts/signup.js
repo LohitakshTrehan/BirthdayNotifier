@@ -1,18 +1,29 @@
+import {saveData} from "./data.js"
 window.onload = function(){
     document.getElementById("RegisterPerson").addEventListener('click',function(event){
         event.preventDefault();
         //start registering the person and look for inline error marking
         var isValid = validate();
-        console.log(isValid);
+        //name,dob,email,pass,empId
+        if(isValid){
+            //save user, save current user, redirect to home
+            let name = document.getElementById("Name");
+            let name_value = name.value.trim();
+            let dob = document.getElementById("BirthDate").value;
+            let enteredEmail = document.getElementById("Email").value;
+            let pass = document.getElementById("pass").value;
+            let empId = document.getElementById("empId").value;
+            saveData(name_value,dob,enteredEmail,pass,empId);
+            //save current user, redirect to home
+        }
     });
-    console.log("signUp.js called");
 }
 
 function validate(){
     var letters = /^[A-Za-z]+$/;
     var email = /.+@iongroup.com$/
     var empIdPattern = /^[a-zA-Z]\-[0-9]+$/;
-    var dob = document.getElementById("BirthDate").value; //empId, pass
+    var dob = document.getElementById("BirthDate").value;
     var name = document.getElementById("Name");
     var name_value = name.value.trim();
     var nameArr = name_value.split(" ");

@@ -1,5 +1,5 @@
 export function saveData(name,dob,email,pass,empId){
-    var dobArr = dob.split("-");
+    var dobArr = dob.split("/");
     var connectionId = empId.trim().split("-")[1];
     var personObj = {
         name,
