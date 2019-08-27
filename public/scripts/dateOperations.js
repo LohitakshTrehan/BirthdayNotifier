@@ -55,7 +55,14 @@ export function humanFriendlyDate(dateArr){
 // }
 
 export function isToday(dateToBeChecked){
-    return true;
+    //input in [mm,dd,yyyy] format
+    var today = new Date();
+    let date = today.getDate();
+    let month = today.getMonth() + 1;
+    if(date === parseInt(dateToBeChecked[1]) && month === parseInt(dateToBeChecked[0]))
+        return true;
+    else
+        return false;
 }
 
 export function isUpcoming(dateToBeChecked){
