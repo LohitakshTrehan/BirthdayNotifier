@@ -1,6 +1,6 @@
 import { getCurrentUser, unsetCurrentUser } from "./currentUser.js";
 import {getPersonData, getCredentialData} from "./data.js";
-import { humanFriendlyDate } from "./dateOperations.js";
+import { humanFriendlyDate, isToday, isUpcoming } from "./dateOperations.js";
 
 window.onload = function(){
     //first check if user logged in, else redirect to login page
@@ -59,8 +59,51 @@ function buildMainList(){
         });
         //update person team link
         outerDiv.getElementsByClassName("person-teams-link")[0].setAttribute("href", "sip:"+person.email);
-            
-        
         document.getElementById("list_all_bday").appendChild(clonedNode);
+    }
+    let todayDate = new Date();
+    let dateArr = [];
+    dateArr.push(todayDate.getMonth()+1)
+    dateArr.push(todayDate.getDate())
+    dateArr.push(todayDate.getFullYear())
+    document.getElementById("todays-date").innerHTML = humanFriendlyDate(dateArr);
+    for(let person of data){
+        if(isToday(person.dob)){
+            var clonedNode = document.getElementById("clone_main").cloneNode(true);
+            clonedNode.setAttribute("id","")
+            clonedNode.style["display"] = "block" 
+            let outerDiv = clonedNode.children[0];
+            //update person name
+            outerDiv.getElementsByClassName("person-name")[0].innerText = person.name;
+            //update person DOB
+            outerDiv.getElementsByClassName("person-dob-prepend")[0].style["display"] = "none"
+            //update person connection link
+            //outerDiv.getElementsByClassName("person-connection-link")[0].classList.add("ml-auto")
+            outerDiv.getElementsByClassName("person-connection-link")[0].addEventListener("click",()=>{
+                window.open('https://connect.iongroup.com/person/'+ person.connectionId,'Connection Profile','height=900,width=1000')
+            });
+            //update person team link
+            outerDiv.getElementsByClassName("person-teams-link")[0].setAttribute("href", "sip:"+person.email);
+            document.getElementById("list_today_bday").appendChild(clonedNode);
+        }
+    }
+    for(let person of data) {
+        if(isUpcoming(person.dob)){
+            var clonedNode = document.getElementById("clone_main").cloneNode(true);
+            clonedNode.setAttribute("id","")
+            clonedNode.style["display"] = "block" 
+            let outerDiv = clonedNode.children[0];
+            //update person name
+            outerDiv.getElementsByClassName("person-name")[0].innerText = person.name;
+            //update person DOB
+            outerDiv.getElementsByClassName("person-dob")[0].innerText = humanFriendlyDate(person.dob);
+            //update person connection link
+            outerDiv.getElementsByClassName("person-connection-link")[0].addEventListener("click",()=>{
+                window.open('https://connect.iongroup.com/person/'+ person.connectionId,'Connection Profile','height=900,width=1000')
+            });
+            //update person team link
+            outerDiv.getElementsByClassName("person-teams-link")[0].setAttribute("href", "sip:"+person.email);
+            document.getElementById("list_upcoming_bday").appendChild(clonedNode);
+        }
     }
 }

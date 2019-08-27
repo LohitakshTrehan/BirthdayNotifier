@@ -64,19 +64,18 @@
                         </span>
                     </div>
                     <div id="list_all_bday" style="overflow: auto; max-height: 800px;" class="list-group">
-                    <div id="clone_main" class="card card-body list-group-item" style="display: none">
+                        <div id="clone_main" class="card card-body list-group-item" style="display: none">
                             <div class="d-flex flex-row personContent">
-                                <img class="mr-5" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
-                         <!----><span class="person-name ml-5" style="font-size: larger;font-weight: 600">
+                                <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
+                         <!----><span title="name" class="person-name ml-4" style="font-size: larger;font-weight: 600;display: block;width:400px"">
                                     Tanay
                                 </span>
-                                <span class="ml-auto mr-3 " style="font-size: larger;">
-                                    <span class="mr-1">Date of Birth:</span>
-                             <!----><span class="person-dob" style="font-weight: 600">1st, January</span>
+                                <span class="person-dob-prepend" style="font-size: larger;display: block;width:400px">
+                             <!----><span title="Date of Birth" class="person-dob" style="font-weight: 600">1st, January</span>
                                 </span>
-                         <!----><img class="shadow mr-3 person-connection-link" style="cursor: pointer; width: 30px;height:30px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection_icon.png" alt="Connection link">
-                                <a class="shadow mr-1 person-teams-link" style="cursor: pointer; width: 35px;height:30px;border-radius:5px;"><img style="cursor: pointer; width: 35px;height:30px;border-radius:5px;" src="./assets/teams_icon.png" alt="Teams link"></a>
-                        </div>
+                         <!----><img title="connection" class="shadow ml-auto mr-3 person-connection-link" style="cursor: pointer; width: 30px;height:30px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection_icon.png" alt="Connection link">
+                                <a title="microsoft teams" class="shadow mr-1 person-teams-link" style="cursor: pointer; width: 35px;height:30px;border-radius:5px;"><img style="cursor: pointer; width: 35px;height:30px;border-radius:5px;" src="./assets/teams_icon.png" alt="Teams link"></a>
+                            </div>
                         </div>            
                     </div>
                 </div>
@@ -88,21 +87,10 @@
             <div class="m-3" style="flex: 1 1 0;display: flex;flex-direction: column;">
                 <div class="mb-4 mt-2" style="flex: 1;overflow: hidden; max-height: 48px;">
                     <div>
-                        <span style="font-size: xx-large;font-weight: 500">Today's Birthday (1st, January)</span>
+                        <span style="font-size: xx-large;font-weight: 500">Today's Birthday (<span id="todays-date">1st, January</span>)</span>
                     </div>
                 </div>
-                <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_today_bday">
-                    <div class="card card-body list-group-item">
-                        <div class="d-flex flex-row personContent">
-                            <img class="mr-5 " src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
-                            <span class="ml-5 " style="font-size: larger;font-weight: 600">
-                                Tanay
-                            </span>
-                            <img class="ml-auto mr-5 shadow " style="width: 100px;height:25px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection.png" alt="ConnectionId">
-                            <img class=" ml-5 mr-5 shadow " style="width: 100px;height:25px;border-radius:5px;" src="./assets/teams.jpg" alt="TeamsId">
-                        </div>
-                    </div>
-                </div>
+                <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_today_bday"></div>
 
                 <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
 
@@ -112,7 +100,7 @@
                     </div>
                 </div>
                 <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_upcoming_bday">
-                    <div class="card card-body list-group-item">
+                    <!-- <div class="card card-body list-group-item">
                         <div class="d-flex flex-row personContent">
                             <img class="mr-5 " src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
                             <span class="ml-5 " style="font-size: larger;font-weight: 600">
@@ -125,7 +113,7 @@
                             <img class="mr-5 ml-2 shadow " style="width: 100px;height:25px;border-radius:5px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection.png" alt="ConnectionId">
                             <img class=" ml-5 mr-5 shadow " style="width: 100px;height:25px;border-radius:5px;" src="./assets/teams.jpg" alt="TeamsId">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

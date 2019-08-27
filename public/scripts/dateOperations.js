@@ -50,6 +50,14 @@ export function humanFriendlyDate(dateArr){
     return finalString;
 }
 
-export function dateComparator(date1, date2){
+// export function dateComparator(date1, date2){
 
+// }
+
+export function isToday(dateToBeChecked){
+    return true;
+}
+
+export function isUpcoming(dateToBeChecked){
+    return true;
 }
