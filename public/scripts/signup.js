@@ -1,4 +1,5 @@
-import {saveData} from "./data.js"
+import {saveData, getPersonData} from "./data.js"
+import {setCurrentUser} from "./currentUser.js"
 window.onload = function(){
     document.getElementById("RegisterPerson").addEventListener('click',function(event){
         event.preventDefault();
@@ -15,11 +16,16 @@ window.onload = function(){
             let empId = document.getElementById("empId").value;
             saveData(name_value,dob,enteredEmail,pass,empId);
             //save current user, redirect to home
+            setCurrentUser(enteredEmail,pass);
+            window.location.href = "http://"+window.location.host+"/home.html"
         }
     });
 }
 
 function validate(){
+    
+    //NO VALIDATION TEST FOR 29, 30, 31 FEB OR ANY OTHER INVALID DATE FOR A MONTH OR AN IMPROPER MONTH ARE CODED, IN CASE ERROR, DEFAULT DATE = 1, DEFAULT MONTH = 1
+
     var letters = /^[A-Za-z]+$/;
     var email = /.+@iongroup.com$/
     var empIdPattern = /^[a-zA-Z]\-[0-9]+$/;
@@ -162,6 +168,25 @@ function validate(){
             document.getElementById("err_cpass").style["display"]="none";
         }
     }
+    if(emailExists(enteredEmail)){
+        document.getElementById("wrap_email").setAttribute("class","mb-1");
+        if(document.getElementById("Email").classList.contains("is-valid"))
+            document.getElementById("Email").classList.remove("is-valid")
+        if(document.getElementById("Email").classList.contains("is-invalid"))
+            document.getElementById("Email").classList.remove("is-invalid")
+        document.getElementById("Email").classList.add("is-invalid")
+        document.getElementById("err_email_exists").style["display"]="inline";
+        isValid = false;
+    }
+    else{
+        document.getElementById("wrap_email").setAttribute("class","mb-3");
+        if(document.getElementById("Email").classList.contains("is-valid"))
+            document.getElementById("Email").classList.remove("is-valid")
+        if(document.getElementById("Email").classList.contains("is-invalid"))
+            document.getElementById("Email").classList.remove("is-invalid")
+        document.getElementById("Email").classList.add("is-valid")
+        document.getElementById("err_email_exists").style["display"]="none";
+    }
     return isValid;
 }
 
@@ -177,4 +202,17 @@ function seeIfBorn(bornOn){
     else{
         return false;
     }
+}
+
+function emailExists(email){
+    var persons = getPersonData()
+    if(persons===null)
+        return false;
+    else{
+        for(var person of persons){
+            if(person.email === email)
+                return true
+        }
+    }
+    return false
 }
