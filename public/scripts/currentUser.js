@@ -1,3 +1,5 @@
+import { getPersonData } from "./data.js";
+
 export function setCurrentUser(email,pass){
     var currrentUserObj = {
         email,
@@ -17,4 +19,17 @@ export function getCurrentUser(){
 
 export function unsetCurrentUser(){
     localStorage.setItem("currentUser","");
+}
+
+export function getCurrentUserName(){
+    let data = getPersonData();
+    let name = "";
+    if(data){
+        for(let person of data){
+            if(person.email === getCurrentUser().email){
+                name = person.name;
+            }
+        }
+    }
+    return name;
 }

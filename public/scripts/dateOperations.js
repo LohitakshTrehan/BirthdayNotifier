@@ -50,10 +50,6 @@ export function humanFriendlyDate(dateArr){
     return finalString;
 }
 
-// export function dateComparator(date1, date2){
-
-// }
-
 export function isToday(dateToBeChecked){
     //input in [mm,dd,yyyy] format
     let today = getTodayDate()
@@ -64,7 +60,6 @@ export function isToday(dateToBeChecked){
 }
 
 export function isUpcoming(dateToBeChecked){
-    return true;
     let calendar = []
     if(isLeapYear(getTodayDate().year)){
         calendar = [31,31,29,31,30,31,30,31,31,30,31,30];
@@ -77,17 +72,103 @@ export function isUpcoming(dateToBeChecked){
     let month = getTodayDate().month % 12;
     let days = calendar[month]
     remainingDays = remainingDays - (days-date)
+    let lastDate = {};
     if(remainingDays!==0){
-           // roll over to next month, one day subtracts from remaining mnth, so one is subtracted
+        // roll over to next month, one day subtracts from remaining mnth, so one is subtracted
+        month = (month+1)%12;
+        date = 1;
+        remainingDays = remainingDays - 1;
+        if(remainingDays !==0){
+            days = calendar[month];
+            if(remainingDays - (days-date)>0){
+                remainingDays = remainingDays - (days-date)
+                month = (month+1)%12;
+                date = 1;
+                remainingDays = remainingDays - 1;
+                date+=remainingDays
+                date+=remainingDays;
+                if(month===0)
+                    month = 12
+                lastDate = {
+                    "date": date,
+                    "month": month
+                }
+            }
+            else{
+                date+=remainingDays;
+                if(month===0)
+                    month = 12
+                lastDate = {
+                    "date": date,
+                    "month": month
+                }
+            }
+        }
+        else{
+            if(month===0)
+                month = 12
+            lastDate = {
+                "date": date,
+                "month": month
+            }
+        }
     }
     else{
         date = date + 30
         if(month===0)
             month = 12
-        let lastDate = {
+        lastDate = {
             "date": date,
             "month": month
         }
+    }
+    let flag = false;
+    if(getTodayDate().month <= lastDate.month){
+        flag = true;
+    }
+    if(flag){
+        let flag1 = false;
+        let flag2 = false;
+        if(parseInt(dateToBeChecked[0])>=getTodayDate().month){
+            flag1 = true;
+            if(parseInt(dateToBeChecked[0])===getTodayDate().month){
+                if(parseInt(dateToBeChecked[1])<=getTodayDate().date)
+                    flag1 = false;
+            }
+        }
+        if(parseInt(dateToBeChecked[0])<=lastDate.month){
+            flag2 = true;
+            if(parseInt(dateToBeChecked[0])===lastDate.month){
+                if(parseInt(dateToBeChecked[1])>lastDate.date)
+                    flag2 = false;
+            }
+        }
+        if(flag1 && flag2)
+            return true;
+        else
+            return false;
+    }
+    else{
+        let flag1 = false;
+        let flag2 = false;
+        if(parseInt(dateToBeChecked[0])>=getTodayDate().month){
+            flag1 = true;
+            if(parseInt(dateToBeChecked[0])===getTodayDate().month){
+                if(parseInt(dateToBeChecked[1])<=getTodayDate().date)
+                    flag1 = false;
+            }
+        }
+        if(parseInt(dateToBeChecked[0])<=lastDate.month){
+            flag2 = true;
+            if(parseInt(dateToBeChecked[0])===lastDate.month){
+                if(parseInt(dateToBeChecked[1])>lastDate.date)
+                    flag2 = false;
+            }
+        }
+        if(flag1 || flag2)
+            return true;
+        else
+            return false;
     }
 }
 

@@ -1,11 +1,12 @@
-import { getCurrentUser, unsetCurrentUser } from "./currentUser.js";
+import { getCurrentUser, unsetCurrentUser, getCurrentUserName } from "./currentUser.js";
 import {getPersonData, getCredentialData} from "./data.js";
 import { humanFriendlyDate, isToday, isUpcoming } from "./dateOperations.js";
 
 window.onload = function(){
     //first check if user logged in, else redirect to login page
     checkLoggedin();
-    //second attach event to logout button
+    //second attach event to logout button and change user name displayed
+    document.getElementById("user-name").innerHTML = getCurrentUserName();
     document.getElementById("logout").addEventListener("click",function(event){
         event.preventDefault();
         unsetCurrentUser();
