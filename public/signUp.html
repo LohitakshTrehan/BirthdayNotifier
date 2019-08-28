@@ -31,14 +31,20 @@
                         <input required id="Name" placeholder="Name" class="form-control rounded-lg" type="text">
                         <span id="err_name" style="display: none;font-size: 10px" class="text-danger">*Name field contains more than one white space together, or something else than alphabets</span>
                     </div>
-                    <div id="wrap_input" class="mb-3 d-flex flex-row">
-                        <input required placeholder="Date of Birth" id="BirthDate" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-right: 12px;">
+                    <div id="wrap_input" class="input-group mb-3 d-flex flex-row">
+                        <input required placeholder="Date of Birth(mm/dd/yyy)" id="BirthDate" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-right: 12px;">
                         <span id="err_birth" style="display: none;font-size: 10px" class="text-danger">*Are you born in future?</span>
-                        <input required  id="empId" placeholder="Employee Id" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-left: 12px;">
+                        <div class="ml-auto input-group-prepend">
+                            <span class="input-group-text" id="prepend-employee-code">C-</span>
+                        </div>
+                        <input required  id="empId" placeholder="Employee Id" class="form-control rounded-lg" type="text" style="padding-right: 0px;" aria-describedby="prepend-employee-code">
                         <span id="err_empId" style="display: none;font-size: 10px" class="ml-3 text-danger">*Incorrect format of empId</span>
                     </div>
-                    <div id="wrap_email" class="mb-3">
-                        <input required id="Email" placeholder="Email" class="form-control rounded-lg" type="text">
+                    <div id="wrap_email" class="input-group mb-3">
+                        <input required id="Email" placeholder="Email" class="form-control rounded-lg" type="text" aria-describedby="append_email">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="append_email">@iongroup.com</span>
+                        </div>
                         <span id="err_email" style="display: none;font-size: 10px" class="ml-3 text-danger">*Incorrect format of email, please follow: example@iongroup.com</span>
                         <span id="err_email_exists" style="display: none;font-size: 10px" class="ml-3 text-danger">*Email already exists</span>
                     </div>

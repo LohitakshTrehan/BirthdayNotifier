@@ -33,3 +33,17 @@ export function getCurrentUserName(){
     }
     return name;
 }
+
+export function getCurrentUserIndex(email){
+    let data = getPersonData();
+    let currUserIndex = 0;
+    if(data){
+        for(let person of data){
+            if(person.email === getCurrentUser().email){
+                break;
+            }
+            currUserIndex++;
+        }
+    }
+    return currUserIndex;
+}

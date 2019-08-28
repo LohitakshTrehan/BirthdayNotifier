@@ -11,9 +11,9 @@ window.onload = function(){
             let name = document.getElementById("Name");
             let name_value = name.value.trim();
             let dob = document.getElementById("BirthDate").value;
-            let enteredEmail = document.getElementById("Email").value;
+            let enteredEmail = document.getElementById("Email").value + "@iongroup.com";
             let pass = document.getElementById("pass").value;
-            let empId = document.getElementById("empId").value;
+            let empId = "C-"+document.getElementById("empId").value;
             saveData(name_value,dob,enteredEmail,pass,empId);
             //save current user, redirect to home
             setCurrentUser(enteredEmail,pass);
@@ -27,8 +27,8 @@ function validate(){
     //NO VALIDATION TEST FOR 29, 30, 31 FEB OR ANY OTHER INVALID DATE FOR A MONTH OR AN IMPROPER MONTH ARE CODED, IN CASE ERROR, DEFAULT DATE = 1, DEFAULT MONTH = 1
 
     var letters = /^[A-Za-z]+$/;
-    var email = /.+@iongroup.com$/
-    var empIdPattern = /^[a-zA-Z]\-[0-9]+$/;
+    var email = /^[A-Za-z0-9]+(?:[\.][A-Za-z0-9]+)*$/
+    var empIdPattern = /^[0-9]+$/;
     var dob = document.getElementById("BirthDate").value;
     var name = document.getElementById("Name");
     var name_value = name.value.trim();

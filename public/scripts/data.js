@@ -1,6 +1,6 @@
 export function saveData(name,dob,email,pass,empId){
     var dobArr = dob.split("/");
-    var connectionId = empId.trim().split("-")[1];
+    var connectionId = empId.trim()
     var personObj = {
         name,
         dob : dobArr,
@@ -43,4 +43,9 @@ export function getCredentialData(){
         listOfcredentials = JSON.parse(data);
     }
     return listOfcredentials;
+}
+
+export function saveListData(dataList,credentialList){
+    localStorage.setItem('data', JSON.stringify(dataList));
+    localStorage.setItem('credentials', JSON.stringify(credentialList));
 }
