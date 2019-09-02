@@ -1,0 +1,150 @@
+body{
+    overflow: hidden;
+}
+
+.home-navbar{
+    width: 100%
+}
+
+.home-navbar nav{
+    background-color:lightgray; 
+    padding: 0px;
+}
+
+.home-navbar .left-nav-elements{
+    font-size: larger;
+    font-weight: 600;
+    margin:4px 0px; 
+    border-right: 2px solid white;
+}
+
+.home-navbar .right-nav-elements{
+    margin:4px 0px;
+    border-left: 2px solid white;
+}
+
+.modal-body .inline-error{
+    display: none;
+    font-size: 10px;
+}
+
+.modal-body .left-input{
+    padding-right: 0px;
+    margin-right: 12px;
+}
+
+.modal-body .right-input{
+    padding-right: 0px;
+    margin-left: 12px;
+}
+
+.list-content{
+    display: flex; height: 100%;
+}
+
+.list-content .list-all{
+    flex: 1 1 0;
+    overflow: hidden;
+    border-style: none double none none;
+    padding-right: 5px;
+    border-width: 4px;
+    margin-bottom: 66px !important;
+}
+
+.list-content .list-all-container{
+    overflow: auto; max-height: 800px;
+}
+
+.list-content .person-name{
+    font-size: larger;
+    font-weight: 600;
+    display: block;
+    width:400px;
+}
+
+.list-content .person-dob-prepend{
+    font-size: larger;
+    display: block;
+    width:400px;
+}
+
+.list-content .person-dob{
+    font-weight: 600
+}
+
+.list-content .person-connection-link{
+    cursor: pointer; 
+    width: 30px;
+    height:30px;
+    border-radius:15px;
+}
+
+.list-content .person-teams-link{
+    cursor: pointer;
+    width: 35px;
+    height:30px;
+    border-radius:5px;
+}
+
+.list-content .put-border{
+    border-style: none none double none;
+    border-width: 4px;
+    height: 463px;
+}
+
+.list-content .top-right-screen{
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-content .top-right-flex{
+    flex: 1;
+    overflow: hidden;
+     max-height: 48px;
+}
+
+.list-content .top-right-heading{
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.list-content .todays-birthday{
+    flex: 1;
+    overflow: auto;
+    max-height: 350px;
+}
+
+.list-content .bottom-right-screen{
+    flex: 1;
+    overflow: hidden;
+     max-height: 48px;
+}
+
+.list-content .bottom-right-heading{
+    font-size: xx-large;
+    font-weight: 500
+}
+
+.list-content .bottom-right-list{
+    flex: 1;
+    overflow: auto;
+    max-height: 350px;
+}
+
+.navbar-brand {
+    margin-right: 0px;
+}
+.dropdown-menu {
+    width: fit-content;
+    min-width: 0px;
+    text-align: center;
+}
+.dropdown-item {
+    padding: 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.list-group-item {
+    margin-bottom: 0px;
+}

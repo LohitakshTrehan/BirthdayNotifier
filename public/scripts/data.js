@@ -12,40 +12,37 @@ export function saveData(name,dob,email,pass,empId){
         email,
         pass
     }
-    var oldPersonData = getPersonData()
-    var oldCredentialData = getCredentialData();
-    if(oldPersonData===null || oldCredentialData===null){
-        var data = [personObj];
-        localStorage.setItem('data', JSON.stringify(data));
-        var credentials = [credentialObj];
-        localStorage.setItem('credentials', JSON.stringify(credentials));
-    }
-    else{
-        oldPersonData.push(personObj);
-        localStorage.setItem('data', JSON.stringify(oldPersonData));
-        oldCredentialData.push(credentialObj);
-        localStorage.setItem('credentials', JSON.stringify(oldCredentialData));
-    }
+    var oldPersonData = getData() || [];
+    var oldCredentialData = getCredentialData() || [];
+    oldPersonData.push(personObj);
+    setDBData('data', JSON.stringify(oldPersonData));
+    oldCredentialData.push(credentialObj);
+    setDBData('credentials', JSON.stringify(oldCredentialData));
 }
-export function getPersonData(){
+export function getDBdata(storageKey){
     let listOfPersons = null;
-    let data = localStorage.getItem('data');
+    let data = localStorage.getItem(storageKey);
     if(data){
         listOfPersons = JSON.parse(data);
     }
     return listOfPersons;
 }
 
-export function getCredentialData(){
-    let listOfcredentials = null;
-    let data = localStorage.getItem('credentials');
-    if(data){
-        listOfcredentials = JSON.parse(data);
+export function setDBData(storageKey, data){
+    if(storageKey){
+        localStorage.setItem(storageKey, data);    
     }
-    return listOfcredentials;
+}
+
+
+export function getData(){
+    return getDBdata('data');
+}
+export function getCredentialData(){
+    return getDBdata('credentials');
 }
 
 export function saveListData(dataList,credentialList){
-    localStorage.setItem('data', JSON.stringify(dataList));
-    localStorage.setItem('credentials', JSON.stringify(credentialList));
+    setDBData('data', JSON.stringify(dataList));
+    setDBData('credentials', JSON.stringify(credentialList));
 }

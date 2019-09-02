@@ -7,44 +7,24 @@
         <link rel="shortcut icon" type="image/png" href="./assets/logo.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
-        <style>
-            .navbar-brand {
-                margin-right: 0px;
-            }
-            .dropdown-menu {
-                width: fit-content;
-                min-width: 0px;
-                text-align: center;
-            }
-            .dropdown-item {
-                padding: 0px;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-            .list-group-item {
-                margin-bottom: 0px;
-            }
-        </style>
+        <link rel="stylesheet" href="./styles/home.css">
     </head>
-    <body id="bodyTag" style="overflow-y: hidden;">
-        <div style="width: 100%" id="homepage_nav">
-            <nav class="shadow-sm navbar navbar-expand-lg navbar-light" style="background-color:lightgray; padding: 0px; border-radius: 10px">
-                <a class="navbar-brand ml-1 pr-1" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none solid none none;" href="#" onclick="document.location.reload(true)">
+    <body>
+        <div class="home-navbar" id="homepage_nav">
+            <nav class="shadow-sm navbar navbar-expand-lg navbar-light" >
+                <a class="left-nav-elements navbar-brand ml-1 pr-1" href="#" onclick="document.location.reload(true)">
                     <img src="./assets/ION_logo.png" width="50" height="30" alt="ION">
                 </a>
-                <a class="navbar-brand ml-2 pr-1" style="font-size: larger;font-weight: 600;border-radius: 5px;border-color: white;border-width: 2px;border-style: none solid none none;" href="#" onclick="document.location.reload(true)">ION Birthday Notifier</a>
-                <img class="ml-auto navbar-brand pl-1 mr-2" style="border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
+                <a class="left-nav-elements navbar-brand ml-2 pr-1" href="#" onclick="document.location.reload(true)">ION Birthday Notifier</a>
+                <img class="right-nav-elements ml-auto navbar-brand pl-1 mr-2" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png">
                 <a id="user-name" class="navbar-brand mr-2"></a>
-                <div style="padding-top: 5px;padding-bottom: 5px;cursor: pointer;border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" class="pl-1 dropdown dropleft">
+                <div class="right-nav-elements pl-1 dropdown dropleft">
                     <img class="navbar-brand mr-2 dropdown-toggle" id="home_settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://img.icons8.com/ios-filled/20/000000/settings.png" alt="settings">
                     <div class="dropdown-menu " aria-labelledby="home_settings">
                         <a id="edit_profile" class="dropdown-item" href="#" data-toggle="modal" data-target="#editProfileModal">Edit Profile</a>
-                        <a class="dropdown-item" href="#">Future setting 1</a>
-                        <a class="dropdown-item" href="#">Future setting 2</a>
-                        <a class="dropdown-item" href="#">Future setting 3</a>
                     </div>
                 </div>
-                <img id="logout" class="navbar-brand mr-2 pl-1" style="cursor: pointer;border-radius: 5px;border-color: white;border-width: 2px;border-style: none none none solid;" src="https://img.icons8.com/windows/30/000000/exit.png" alt="signOut">
+                <img id="logout" class="right-nav-elements navbar-brand mr-2 pl-1" src="https://img.icons8.com/windows/30/000000/exit.png" alt="signOut">
             </nav>
         </div>
 
@@ -59,23 +39,23 @@
                 </div>
                 <div class="modal-body">
                     <div id="wrap_name" class=" mb-3">
-                        <input required id="Name" placeholder="Name" class="form-control rounded-lg" type="text">
-                        <span id="err_name" style="display: none;font-size: 10px" class="text-danger">*Name field contains more than one white space together, or something else than alphabets</span>
+                        <input required id="Name" value="Name" class="form-control rounded-lg" type="text">
+                        <span id="err_name"  class="inline-error text-danger">*Name field contains more than one white space together, or something else than alphabets</span>
                     </div>
                     <div id="wrap_input" class="mb-3 d-flex flex-row">
-                        <input required placeholder="Date of Birth" id="BirthDate" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-right: 12px;">
-                        <span id="err_birth" style="display: none;font-size: 10px" class="text-danger">*Are you born in future?</span>
-                        <input required  id="empId" placeholder="Employee Id" class="form-control rounded-lg" type="text" style="padding-right: 0px;margin-left: 12px;">
-                        <span id="err_empId" style="display: none;font-size: 10px" class="ml-3 text-danger">*Incorrect format of empId</span>
+                        <input required value="Date of Birth" id="BirthDate" class="left-input form-control rounded-lg" type="text" >
+                        <span id="err_birth"  class="inline-error text-danger">*Are you born in future?</span>
+                        <input required  id="empId" value="Employee Id" class="right-input form-control rounded-lg" type="text" >
+                        <span id="err_empId"  class="inline-error ml-3 text-danger">*Incorrect format of empId</span>
                     </div>
-                    <div id="wrap_email" class="mb-3">
+                    <div id="email-input-wrapper" class="mb-3">
                         <span style="font-weight: 700" id="Email"></span>
                     </div>
                     <div id="wrap_pass" class="mb-3 d-flex flex-row">
-                        <input required id="pass" placeholder="Change Password" class="form-control rounded-lg" type="password" style="padding-right: 0px;margin-right: 12px;">
-                        <span id="err_pass" style="display: none;font-size: 10px" class="ml-3 text-danger">*Password length must be greater than five</span>
-                        <input required id="confirm_pass" placeholder="Confirm Password" class="form-control rounded-lg" type="password" style="padding-right: 0px;margin-left: 12px;">
-                        <span id="err_cpass" style="display: none;font-size: 10px" class="ml-3 text-danger">*Passwords dont match</span>
+                        <input required id="pass" placeholder="Change Password" class="left-input form-control rounded-lg" type="password" >
+                        <span id="err_pass"  class="inline-error ml-3 text-danger">*Password length must be greater than five</span>
+                        <input required id="confirm_pass" placeholder="Confirm Password" class="right-input form-control rounded-lg" type="password">
+                        <span id="err_cpass"  class="inline-error ml-3 text-danger">*Passwords dont match</span>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -91,29 +71,30 @@
         <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
         <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-        <div id="main-content" style="display: flex; height: 100%;">
-            <div class="m-3" style="flex: 1 1 0;overflow: hidden;border-style: none double none none;padding-right: 5px;border-width: 4px;margin-bottom: 47px !important;">
+        <div id="main-content" class="list-content">
+            <div class="m-3 list-all">
                 <div>
                     <div class="mb-4 mt-2">
                         <span class="mr-5" style="font-size: xx-large;font-weight: 500">List of all Birthday's</span>
-                        <span style="display: none" class="mr-5"><input placeholder="Search Name" type="text"></span>
-                        <span style="display: none" class="pl-1 pr-2 pb-1" style="cursor: pointer; border: solid;border-color:black;border-width:1px;border-radius:5px;">
+                        <span style="display: none" class="mr-5"><input value="Search Name" type="text"></span>
+                        <span class="pl-1 pr-2 pb-1" style="display: none; cursor: pointer; border: solid;border-color:black;border-width:1px;border-radius:5px;">
                             <img src="https://img.icons8.com/material-sharp/24/000000/sort.png" alt="sort">
                             <span>Sort by Date of Birth</span>
                         </span>
                     </div>
-                    <div id="list_all_bday" style="overflow: auto; max-height: 800px;" class="list-group">
-                        <div id="clone_main" class="card card-body list-group-item" style="display: none">
+                    <div id="list_all_bday" class="list-all-container list-group">
+                        <div id="card-template" class="card card-body list-group-item" style="display: none">
                             <div class="d-flex flex-row personContent">
                                 <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User">
-                         <!----><span title="name" class="person-name ml-4" style="font-size: larger;font-weight: 600;display: block;width:400px"">
-                                    Tanay
+                         <!----><span title="name" class="person-name ml-4">
                                 </span>
-                                <span class="person-dob-prepend" style="font-size: larger;display: block;width:400px">
-                             <!----><span title="Date of Birth" class="person-dob" style="font-weight: 600">1st, January</span>
+                                <span class="person-dob-prepend">
+                             <!----><span title="Date of Birth" class="person-dob">1st, January</span>
                                 </span>
-                         <!----><img title="connection" class="shadow ml-auto mr-3 person-connection-link" style="cursor: pointer; width: 30px;height:30px;border-radius:15px;" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection_icon.png" alt="Connection link">
-                                <a title="microsoft teams" class="shadow mr-1 person-teams-link" style="cursor: pointer; width: 35px;height:30px;border-radius:5px;"><img style="cursor: pointer; width: 35px;height:30px;border-radius:5px;" src="./assets/teams_icon.png" alt="Teams link"></a>
+                         <!----><img title="connection" class="shadow ml-auto mr-3 person-connection-link" target="_blank" onclick="window.open('https://connect.iongroup.com/person/99859','Connection Profile','height=900,width=1000')" src="./assets/connection_icon.png" alt="Connection link">
+                                <a title="microsoft teams" class="shadow mr-1 person-teams-link">
+                                    <img class="person-teams-link" src="./assets/teams_icon.png" alt="Teams link">
+                                </a>
                             </div>
                         </div>            
                     </div>
@@ -123,23 +104,23 @@
             <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
             <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-            <div class="my-3 mr-3" style="flex: 1 1 0;display: flex;flex-direction: column;">
-                <div class="put-border" style="border-style: none none double none;border-width: 4px;height: 463px;">
-                    <div class="mb-4 mt-2" style="flex: 1;overflow: hidden; max-height: 48px;">
+            <div class="my-3 mr-3 top-right-screen">
+                <div class="put-border">
+                    <div class="mb-4 mt-2 top-right-flex">
                         <div>
-                            <span style="font-size: xx-large;font-weight: 500">Today's Birthday (<span id="todays-date"></span>)</span>
+                            <span class="top-right-heading">Today's Birthday (<span id="todays-date"></span>)</span>
                         </div>
                     </div>
-                    <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_today_bday"></div>
+                    <div class="todays-birthday" id="list_today_bday"></div>
                 </div>
                 <!----------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-                <div class="mb-2 mt-3" style="flex: 1;overflow: hidden; max-height: 48px;">
+                <div class="mb-2 mt-3 bottom-right-screen">
                     <div>
-                        <span style="font-size: xx-large;font-weight: 500">Upcoming Birthday's</span>
+                        <span class="bottom-right-heading">Upcoming Birthday's</span>
                     </div>
                 </div>
-                <div style="flex: 1;overflow: auto;max-height: 350px;" id="list_upcoming_bday">
+                <div class="bottom-right-list" id="list_upcoming_bday">
                 </div>
             </div>
         </div>

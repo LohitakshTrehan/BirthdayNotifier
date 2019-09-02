@@ -1,9 +1,13 @@
 
 export function humanFriendlyDate(dateArr){
     // in form of string array of format mm, dd, yyyy; dont need yyyy
-    let num_month = parseInt(dateArr[0]);
-    let month = ""
-    switch (num_month) {
+    let integerMonth = parseInt(dateArr[0]);
+    let month = "";
+    let monthToStringMap = {
+        1:,2:,3:,4:,5:
+    }
+    month = monthToStringMap[integerMonth];
+    switch (integerMonth) {
         case 1:
             month = "January";
             break;
@@ -45,8 +49,8 @@ export function humanFriendlyDate(dateArr){
             month = "January"
             break;
     }
-    let num_date = parseInt(dateArr[1])
-    let finalString = num_date+", "+month;
+    let date = parseInt(dateArr[1])
+    let finalString = date+", "+month;
     return finalString;
 }
 
@@ -59,6 +63,7 @@ export function isToday(dateToBeChecked){
         return false;
 }
 
+//
 export function isUpcoming(dateToBeChecked){
     let calendar = []
     if(isLeapYear(getTodayDate().year)){

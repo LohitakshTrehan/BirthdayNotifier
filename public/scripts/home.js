@@ -1,5 +1,5 @@
 import { getCurrentUser, unsetCurrentUser, getCurrentUserName, getCurrentUserIndex, setCurrentUser } from "./currentUser.js";
-import {getPersonData, getCredentialData, saveListData} from "./data.js";
+import {getData, getCredentialData, saveListData} from "./data.js";
 import { humanFriendlyDate, isToday, isUpcoming } from "./dateOperations.js";
 
 window.onload = function(){
@@ -18,19 +18,22 @@ window.onload = function(){
     })
     document.getElementById("save-edited-profile").addEventListener("click", function(event){
         event.preventDefault();
-        let isValid = validate();
+        let name_node = document.getElementById("Name");
+        let name_value = name_node.value.trim();
+        let dob_node = document.getElementById("BirthDate");
+        let dob = dob_node.value;
+        let pass_node = document.getElementById("pass");
+        let pass = pass_node.value;
+        let empId_node = document.getElementById("empId");
+        let empId = empId_node.value;
+        let isValid = validate(name_node,dob_node,pass_node,empId_node);
         if(isValid){
             //update credential data, person data, current user data
-            let name = document.getElementById("Name");
-            let name_value = name.value.trim();
-            let dob = document.getElementById("BirthDate").value;
-            let pass = document.getElementById("pass").value;
-            let empId = document.getElementById("empId").value;
             let currPersonIndex = null;
             checkLoggedin();
             let currPerson = getCurrentUser();
             currPersonIndex = getCurrentUserIndex(currPerson.email)
-            let data = getPersonData();
+            let data = getData();
             data[currPersonIndex].name = name_value;
             data[currPersonIndex].dob = dob.split('/')
             data[currPersonIndex].connectionId = empId.trim()
@@ -73,9 +76,9 @@ function checkLoggedin(){
 }
 function buildMainList(){
        
-    let data = getPersonData();
+    let data = getData();
     for(let person of data) {
-        var clonedNode = document.getElementById("clone_main").cloneNode(true);
+        var clonedNode = document.getElementById("card-template").cloneNode(true);
         clonedNode.setAttribute("id","")
         clonedNode.style["display"] = "block" 
         let outerDiv = clonedNode.children[0];
@@ -91,15 +94,16 @@ function buildMainList(){
         outerDiv.getElementsByClassName("person-teams-link")[0].setAttribute("href", "sip:"+person.email);
         document.getElementById("list_all_bday").appendChild(clonedNode);
     }
+
+
     let todayDate = new Date();
-    let dateArr = [];
-    dateArr.push(todayDate.getMonth()+1)
-    dateArr.push(todayDate.getDate())
-    dateArr.push(todayDate.getFullYear())
+    let dateArr = [todayDate.getMonth()+1, todayDate.getDate(), todayDate.getFullYear];   
     document.getElementById("todays-date").innerHTML = humanFriendlyDate(dateArr);
+
+
     for(let person of data){
         if(isToday(person.dob)){
-            var clonedNode = document.getElementById("clone_main").cloneNode(true);
+            var clonedNode = document.getElementById("card-template").cloneNode(true);
             clonedNode.setAttribute("id","")
             clonedNode.style["display"] = "block" 
             let outerDiv = clonedNode.children[0];
@@ -118,7 +122,7 @@ function buildMainList(){
     }
     for(let person of data) {
         if(isUpcoming(person.dob)){
-            var clonedNode = document.getElementById("clone_main").cloneNode(true);
+            var clonedNode = document.getElementById("card-template").cloneNode(true);
             clonedNode.setAttribute("id","")
             clonedNode.style["display"] = "block" 
             let outerDiv = clonedNode.children[0];
@@ -143,39 +147,35 @@ function editUserInfo(){
     checkLoggedin();
     let currPerson = getCurrentUser();
     currPersonIndex = getCurrentUserIndex(currPerson.email)
-    let data = getPersonData();
+    let data = getData();
     currPersonData = data[currPersonIndex];
     console.log(currPersonData)
-    document.getElementById("Name").setAttribute("placeholder",currPersonData.name);
-    document.getElementById("BirthDate").setAttribute("placeholder",""+currPersonData.dob[0]+"/"+currPersonData.dob[1]+"/"+currPersonData.dob[2]);
-    document.getElementById("empId").setAttribute("placeholder",currPersonData.connectionId);
+    document.getElementById("Name").setAttribute("value",currPersonData.name);
+    document.getElementById("BirthDate").setAttribute("value",""+currPersonData.dob[0]+"/"+currPersonData.dob[1]+"/"+currPersonData.dob[2]);
+    document.getElementById("empId").setAttribute("value",currPersonData.connectionId);
     document.getElementById("Email").innerHTML = currPersonData.email;
 }
 
-function validate(){
+function validate(name_node,dob_node,pass_node,empId_node){
     
     //NO VALIDATION TEST FOR 29, 30, 31 FEB OR ANY OTHER INVALID DATE FOR A MONTH OR AN IMPROPER MONTH ARE CODED, IN CASE ERROR, DEFAULT DATE = 1, DEFAULT MONTH = 1
 
     var letters = /^[A-Za-z]+$/;
-    var email = /.+@iongroup.com$/
     var empIdPattern = /^C\-[0-9]+$/;
-    var dob = document.getElementById("BirthDate").value;
-    var name = document.getElementById("Name");
-    var name_value = name.value.trim();
+    var dob = dob_node.value;
+    var name_value = name_node.value.trim();
     var nameArr = name_value.split(" ");
-    var empId = document.getElementById("empId").value;
-    var pass = document.getElementById("pass").value;
-    var confirm_pass = document.getElementById("confirm_pass").value;
+    var empId = empId_node.value;
+    var pass = pass_node.value;
+    var confirm_pass_node = document.getElementById("confirm_pass");
+    var confirm_pass = confirm_pass_node.value;
     var isValid = true;
     var err = 0;
     for(let i=0;i<nameArr.length;i++){
         if(nameArr[i].match(letters)===null){
             document.getElementById("wrap_name").setAttribute("class","mb-1");
-            if(name.classList.contains("is-valid"))
-                name.classList.remove("is-valid");
-            if(name.classList.contains("is-invalid"))
-                name.classList.remove("is-invalid");
-            name.classList.add("is-invalid")
+            name_node.classList.remove("is-valid");
+            name_node.classList.add("is-invalid")
             document.getElementById("err_name").style["display"]="inline";
             isValid = false;
             err = 1;
@@ -185,11 +185,8 @@ function validate(){
 
     if(err===0){
         document.getElementById("wrap_name").setAttribute("class","mb-3");
-        if(name.classList.contains("is-valid"))
-            name.classList.remove("is-valid");
-        if(name.classList.contains("is-invalid"))
-            name.classList.remove("is-invalid");
-        name.classList.add("is-valid")
+        name_node.classList.remove("is-invalid");
+        name_node.classList.add("is-valid")
         document.getElementById("err_name").style["display"]="none";
     }
 
@@ -198,19 +195,13 @@ function validate(){
         document.getElementById("wrap_input").setAttribute("class","mb-1 d-flex flex-row");
         isValid = false;
         if(!isBorn){
-            if(document.getElementById("BirthDate").classList.contains("is-valid"))
-                document.getElementById("BirthDate").classList.remove("is-valid")
-            if(document.getElementById("BirthDate").classList.contains("is-invalid"))
-                document.getElementById("BirthDate").classList.remove("is-invalid")
-            document.getElementById("BirthDate").classList.add("is-invalid")
+            dob_node.classList.remove("is-valid")
+            dob_node.classList.add("is-invalid")
             document.getElementById("err_birth").style["display"]="inline";
         }
         if(empId.match(empIdPattern)===null){
-            if(document.getElementById("empId").classList.contains("is-valid"))
-                document.getElementById("empId").classList.remove("is-valid")
-            if(document.getElementById("empId").classList.contains("is-invalid"))
-                document.getElementById("empId").classList.remove("is-invalid")
-            document.getElementById("empId").classList.add("is-invalid")
+            empId_node.classList.remove("is-valid")
+            empId_node.classList.add("is-invalid")
             document.getElementById("err_empId").style["display"]="inline";
         }
     }
@@ -218,62 +209,42 @@ function validate(){
         document.getElementById("wrap_input").setAttribute("class","mb-3 d-flex flex-row");
     }
     if(isBorn){
-        if(document.getElementById("BirthDate").classList.contains("is-valid"))
-            document.getElementById("BirthDate").classList.remove("is-valid")
-        if(document.getElementById("BirthDate").classList.contains("is-invalid"))
-            document.getElementById("BirthDate").classList.remove("is-invalid")
-        document.getElementById("BirthDate").classList.add("is-valid")
+        dob_node.classList.remove("is-invalid")
+        dob_node.classList.add("is-valid")
         document.getElementById("err_birth").style["display"]="none";
     }
     if(empId.match(empIdPattern)!==null){
-        if(document.getElementById("empId").classList.contains("is-valid"))
-            document.getElementById("empId").classList.remove("is-valid")
-        if(document.getElementById("empId").classList.contains("is-invalid"))
-            document.getElementById("empId").classList.remove("is-invalid")
-        document.getElementById("empId").classList.add("is-valid")
+        empId_node.classList.remove("is-invalid")
+        empId_node.classList.add("is-valid")
         document.getElementById("err_empId").style["display"]="none";
     }
 
     if(pass.length<5){
         document.getElementById("wrap_pass").setAttribute("class","mb-1 d-flex flex-row");
         isValid = false;
-        if(document.getElementById("pass").classList.contains("is-valid"))
-            document.getElementById("pass").classList.remove("is-valid")
-        if(document.getElementById("pass").classList.contains("is-invalid"))
-            document.getElementById("pass").classList.remove("is-invalid")
-        document.getElementById("pass").classList.add("is-invalid")
+        pass_node.classList.remove("is-valid")
+        pass_node.classList.add("is-invalid")
         document.getElementById("err_pass").style["display"]="inline";
 
-        if(document.getElementById("confirm_pass").classList.contains("is-valid"))
-            document.getElementById("confirm_pass").classList.remove("is-valid")
-        if(document.getElementById("confirm_pass").classList.contains("is-invalid"))
-            document.getElementById("confirm_pass").classList.remove("is-invalid")
+        confirm_pass_node.classList.remove("is-valid")
+        confirm_pass_node.classList.remove("is-invalid")
         document.getElementById("err_cpass").style["display"]="none";
     }
     else{
-        if(document.getElementById("pass").classList.contains("is-valid"))
-            document.getElementById("pass").classList.remove("is-valid")
-        if(document.getElementById("pass").classList.contains("is-invalid"))
-            document.getElementById("pass").classList.remove("is-invalid")
-        document.getElementById("pass").classList.add("is-valid")
+        pass_node.classList.remove("is-invalid")
+        pass_node.classList.add("is-valid")
         document.getElementById("err_pass").style["display"]="none";
         if(pass!==confirm_pass){
             document.getElementById("wrap_pass").setAttribute("class","mb-1 d-flex flex-row");
-            if(document.getElementById("confirm_pass").classList.contains("is-valid"))
-                document.getElementById("confirm_pass").classList.remove("is-valid")
-            if(document.getElementById("confirm_pass").classList.contains("is-invalid"))
-                document.getElementById("confirm_pass").classList.remove("is-invalid")
-            document.getElementById("confirm_pass").classList.add("is-invalid")
+            confirm_pass_node.classList.remove("is-valid")
+            confirm_pass_node.classList.add("is-invalid")
             document.getElementById("err_cpass").style["display"]="inline";
             isValid = false;
         }
         else{
             document.getElementById("wrap_pass").setAttribute("class","mb-3 d-flex flex-row");
-            if(document.getElementById("confirm_pass").classList.contains("is-valid"))
-                document.getElementById("confirm_pass").classList.remove("is-valid")
-            if(document.getElementById("confirm_pass").classList.contains("is-invalid"))
-                document.getElementById("confirm_pass").classList.remove("is-invalid")
-            document.getElementById("confirm_pass").classList.add("is-valid")
+            confirm_pass_node.classList.remove("is-invalid")
+            confirm_pass_node.classList.add("is-valid")
             document.getElementById("err_cpass").style["display"]="none";
         }
     }
