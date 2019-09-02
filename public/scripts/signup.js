@@ -1,6 +1,7 @@
 import {saveData, getData} from "./data.js"
 import {setCurrentUser} from "./currentUser.js"
 window.onload = function(){
+    $( "#BirthDate" ).datepicker();
     document.getElementById("RegisterPerson").addEventListener('click',function(event){
         event.preventDefault();
         //start registering the person and look for inline error marking
@@ -61,7 +62,6 @@ function validate(name_node,dob_node,email_node,pass_node,empId_node){
         name_node.classList.add("is-valid")
         document.getElementById("err_name").style["display"]="none";
     }
-    //change name
     var isBorn = seeIfBorn(dob);
     if( !isBorn || empId.match(empIdPattern)===null){
         document.getElementById("wrap_input").setAttribute("class","mb-1 d-flex flex-row");
@@ -122,7 +122,7 @@ function validate(name_node,dob_node,email_node,pass_node,empId_node){
         document.getElementById("err_pass").style["display"]="none";
         if(pass!==confirm_pass){
             document.getElementById("wrap_pass").setAttribute("class","mb-1 d-flex flex-row");
-            confirm_pass_node.classList.remove("is-invalid")
+            confirm_pass_node.classList.remove("is-valid")
             confirm_pass_node.classList.add("is-invalid")
             document.getElementById("err_cpass").style["display"]="inline";
             isValid = false;
